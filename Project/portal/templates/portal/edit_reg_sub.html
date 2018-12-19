@@ -1,0 +1,31 @@
+{% extends 'portal/student_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>{{formname}}</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <style>
+    input[type='file']{
+      color:white;
+    }
+    </style>
+
+    <div class="">
+		<hr>
+        <h2>{{formname}}
+		</h2>
+        <hr/>
+<form method="post" enctype = 'multipart/form-data'>
+            <div class="formLeftAlign">
+            {% csrf_token %}
+            {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+    <br>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Summer Term Details</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <h2>Summer Term Details</h2>
+        <hr >
+        <br/>
+
+        <p class = "formLeftAlign">
+            Roll No : {{user}}<br>
+            Name : {{context.name}}<br>
+            Semester : {{context.Semester}}<br>
+            Subject : {{context.subject1}}<br>
+	    Subject : {{context.subject2}}<br>
+	    Subject : {{context.subject3}}
+        </p>
+
+    </div>
+
+    {%  block popup %}{% endblock %}
+
+{% endblock %}

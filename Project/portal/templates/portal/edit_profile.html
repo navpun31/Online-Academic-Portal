@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Edit Profile</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+		<hr>
+        <h2>Edit Profile
+		</h2>
+        <hr/>
+        <form method="post">
+            <div class="formLeftAlign">
+            {% csrf_token %}
+            {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+    <br>
+{% endblock %}

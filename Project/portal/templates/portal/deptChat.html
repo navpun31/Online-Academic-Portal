@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Department Chat</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+		<hr>
+        <h2>Send Message</h2>
+        <hr/>
+        <form method="post" enctype="multipart/form-data">
+			<style>
+			input[type='file']{
+				color:white;
+			}
+			</style>
+            <div class="formLeftAlign">
+				{% csrf_token %}
+				{{ form.as_p }}
+			</div>
+			<button type="submit" class="btn btn-primary">Send</button><br>          
+        </form>
+		<br>
+		
+		
+		<hr>
+        <h2>Department Chat</h2>
+        <hr/>
+        <br/>
+		
+        <div style = "text-align:left;">
+			{% for message in context %}
+				<style>
+					.notifHover{
+					
+						background:#4f0000;
+					}
+					.notifHover:hover{
+						background:black;
+					}
+				</style>
+			
+				<div style = "border:1px dashed white; padding:10px; color:white; width:100%; margin:auto;" class = "notifHover">
+					<p style = "text-align:justify; word-break: break-all; ">
+						{{forloop.counter}} : <strong>{{message.user.first_name}} {{message.user.last_name}} (Part {{message.user.userprofile.year}})</strong>
+						<br><br>
+						{{message.message}}
+						<br>
+					</p>
+					
+					
+					<div class = "row">
+						<div class = "col-md-6">
+							{% if post.file %}<a href='{{message.file.url}}' style="color:lightblue; ">Download Attachment</a>{% endif %}
+						</div>
+						<div style="text-align:right" class = "col-md-6">
+							<i>
+								({{message.date}})
+							</i>
+						</div>
+					</div>
+				</div>
+				<br>
+			{% endfor %}
+        </div>
+    </div>
+	<br/>
+{% endblock %}

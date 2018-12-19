@@ -1,0 +1,46 @@
+
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Programmes</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <hr>
+        <h1>Year</h1>
+        <hr >
+        <br/>
+        {% if prog == "B.Tech" %}
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/I">Part I</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/II">Part II</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/III">Part III</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/IV">Part IV</a></li><br>
+        {% endif %}
+        {% if prog == "M.Tech" %}
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/I">Part I</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/II">Part II</a></li><br>
+        {% endif %}
+        {% if prog == "IDD" %}
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/I">Part I</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/II">Part II</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/III">Part III</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/IV">Part IV</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/V">Part V</a></li><br>
+        {% endif %}
+        {% if prog == "PHD" %}
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/I">Part I</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/II">Part II</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/III">Part III</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/IV">Part IV</a></li><br>
+            <li><a href="/portal/see_s_list1/{{dep}}/{{prog}}/V">Part V</a></li><br>
+        {% endif %}
+        
+
+	</div>
+
+        
+{% endblock %}

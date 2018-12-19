@@ -1,0 +1,31 @@
+{% extends 'portal/teacher_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Students</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Students</h2>
+        <hr >
+        <br/>
+	<p class = "formLeftAlign">
+            {% if list %}
+    	    <ol style = "text-align:left; font-size:17px;">
+   	    {% for student in list %}
+       		 <li>{{student.user.username}} - {{student.user.first_name}} {{student.user.last_name}}</li>
+    	    {% endfor %}
+    	    </ol>
+	    {% else %}
+    		No student is enrolled.
+	    {% endif %}
+        </p>
+
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

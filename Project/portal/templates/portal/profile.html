@@ -1,0 +1,61 @@
+<div>
+	<div class "row" style="font-size:20px; padding:20px">
+		<div class="col-md-6" style="text-align:right">
+			Username
+		</div>
+		<div class="col-md-6" style="text-align:left">
+			{{user}}
+		</div>
+	</div>
+	<div class "row" style="font-size:20px; padding:20px">
+		<div class="col-md-6" style="text-align:right">
+			First Name
+		</div>
+		<div class="col-md-6" style="text-align:left">
+			{{user.first_name}}
+		</div>
+	</div>
+	<div class "row" style="font-size:20px; padding:20px">
+		<div class="col-md-6" style="text-align:right">
+			Last Name
+		</div>
+		<div class="col-md-6" style="text-align:left">
+			{{user.last_name}}
+		</div>
+	</div>
+	<div class "row" style="font-size:20px; padding:20px">
+		<div class="col-md-6" style="text-align:right">
+			Email
+		</div>
+		<div class="col-md-6" style="text-align:left"> 
+			{{user.email}}
+		</div>
+	</div>
+	<div class "row" style="font-size:20px; padding:20px">
+		<div class="col-md-6" style="text-align:right">
+			Department
+		</div>
+		<div class="col-md-6" style="text-align:left"> 
+			{{profile.department}}
+		</div>
+	</div>
+
+	{% if profile.status == "Student" %}
+		<div class "row" style="font-size:20px; padding:20px">
+			<div class="col-md-6" style="text-align:right">
+				Programme
+			</div>
+			<div class="col-md-6" style="text-align:left"> 
+				{{profile.program}}
+			</div>
+		</div>
+		<div class "row" style="font-size:20px; padding:20px">
+			<div class="col-md-6" style="text-align:right">
+				Year
+			</div>
+			<div class="col-md-6" style="text-align:left"> 
+				{{profile.year}}
+			</div>
+		</div>
+	{% endif %}
+</div>

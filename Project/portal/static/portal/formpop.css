@@ -1,0 +1,55 @@
+input, textarea, select, option{
+    color : black;
+    border: 1px solid deepskyblue;
+    float: right;
+    width : 50%;
+}
+
+.btn{
+	border-radius : 0px;
+	width : 20%;
+	height : 40px;
+}
+
+.portalLinks{
+	float : left;
+    color : white;
+	font-size : 24px;
+	width : 19%;
+	height : 150px;
+	margin : 5px;
+	padding : 25px;
+	padding : auto;
+    text-align: center;
+
+
+    background-color: rgba(50,0,0, 0.75);
+    -webkit-transition : background-color 1s;
+}
+
+.inputRight input, textarea{
+    float: none;
+}
+
+hr{
+    border-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.welcome{
+    font-size: 50px;
+}
+
+.mainDiv{
+    height : 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
+}
+
+.formLeftAlign{
+    text-align : left;
+    padding-left : 30px;
+}

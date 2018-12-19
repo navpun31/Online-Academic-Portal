@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+    <title>RSS Feeds</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container containerEdit">
+
+    <hr>
+    <table style = "width:100%;">
+        <tr >
+            <td style="padding-right:10px; width:40%;">
+                <img src="{% static 'portal/images/rss-icon.png' %}" class = "img-responsive" style="max-width: 50px; float:right;">
+            </td>
+            <td style="width:50%; float:left;">
+                <h1>RSS&nbsp;Feeds</h1>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <br>
+    <br>
+
+
+    <div style = "text-align:left;">
+				<style>
+					.notifHover{
+					
+						background:#4f0000;
+					}
+					.notifHover:hover{
+						background:black;
+					}
+				</style>
+    			{% for entry in dic %}
+    				<div style = "border:1px dashed white; padding:10px; color:white; width:100%; margin:auto;" class = "notifHover">
+    					<p style = "text-align:justify; word-break: break-all; ">
+    						   <strong>{{entry.title}}</strong>
+    						<br><br>
+    						{{entry.description}}
+    						<br>
+    					</p>
+    				</div>
+                <br>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

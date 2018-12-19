@@ -1,0 +1,48 @@
+{% extends 'portal/student_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Subjects</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Subjects</h2>
+        <hr >
+        <br/>
+	<p class = "formLeftAlign" style="">
+            {% if course %}
+        	    <ol style = "font-size : 17px; text-align : left">
+                    {% if course.subject2 !=  'None' %}
+                        <li><a href="/portal/checkAttendance/{{course.subject1}}">{{course.subject1}}</a></li>
+                        <br>
+                        {% endif %}
+                      {% if course.subject2 !=  'None' %}
+                        <li><a href="/portal/checkAttendance/{{course.subject2}}">{{course.subject2}}</a></li>
+                        <br>
+                      {% endif %}
+                      {% if course.subject3 !=  'None' %}
+                        <li><a href="/portal/checkAttendance/{{course.subject3}}">{{course.subject3}}</a></li>
+                        <br>
+                      {% endif %}
+                      {% if course.subject4 !=  'None' %}
+                        <li><a href="/portal/checkAttendance/{{course.subject4}}">{{course.subject4}}</a></li>
+                        <br>
+                      {% endif %}
+                      {% if course.subject5 !=  'None' %}
+                        <li><a href="/portal/checkAttendance/{{course.subject5}}">{{course.subject5}}</a></li>
+                        <br>
+                      {% endif %}
+        	    </ol>
+    	    {% else %}
+        		No course registered.
+    	    {% endif %}
+        </p>
+
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

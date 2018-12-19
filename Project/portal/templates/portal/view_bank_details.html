@@ -1,0 +1,33 @@
+{% extends 'portal/student_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Bank Details</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="" >
+        <hr>
+        <h2>Bank Details</h2>
+        <hr >
+        <br/>
+
+        <p class = "formLeftAlign" style="font-size:17px;">
+            Bank Name : <strong>{{context.BankName}}</strong><br>
+            Bank Branch : <strong>{{context.BankBranch}}</strong><br>
+            Account No : <strong>{{context.AccountNo}}</strong><br>
+	        IFS Code : <strong>{{context.IFSCode}}</strong>
+        </p>
+        <br>
+        <a href="/portal/edit_bank_details/" style = "text-decoration:none;">
+            <div class="btn-primary" style="color:white; max-width:30%; padding:10px 10px; margin:auto">
+                Update Details
+            </div>
+        </a>
+
+    </div>
+
+    {%  block popup %}{% endblock %}
+
+{% endblock %}

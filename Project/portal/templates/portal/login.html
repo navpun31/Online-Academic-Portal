@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Login</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <hr><h1>Login to IIT-BHU Portal</h1><hr>
+
+        <br>
+        
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-danger" style="width:auto; font-size:20px;">Login with Google Account</a>
+        <br><br>
+        <span style="font-size:27px;">
+        ---------- OR -----------
+        </span>
+        <br><br>
+
+        <form method="post" class="inputRight">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <br>
+             <a href="/portal/reset-password/" class="btn-danger btn-lg" role="button" style="max-width: 30%; margin: auto; text-decoration:none; border-radius:0px;">Forgot Password ?</a>
+              <br>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+{% endblock %}

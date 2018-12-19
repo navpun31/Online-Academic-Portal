@@ -1,0 +1,61 @@
+{% extends 'portal/student_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Course Registration Details</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Course Registration Details</h2>
+        <hr>
+        <br>
+        <p class = "formLeftAlign">
+            <ol style = "font-size : 17px; text-align : left">
+                    {% if s1 !=  'None' %}
+                        <li><strong>{{s1}}</strong>
+                        <br>
+                        Taught by : {{t1.first_name}} {{t1.last_name}}
+                        </li>
+                        <br>
+                        {% endif %}
+                      {% if s2 !=  'None' %}
+                        <li><strong>{{s2}}</strong><br>
+                        Taught by : {{t2.first_name}} {{t2.last_name}}
+                        
+                        </li><br>
+                      {% endif %}
+                      {% if s3 !=  'None' %}
+                        <li><strong>{{s3}}</strong><br>
+                        Taught by : {{t3.first_name}} {{t3.last_name}}
+                        
+                        </li><br>
+                      {% endif %}
+                      {% if s4 !=  'None' %}
+                        <li><strong>{{s4}}</strong><br>
+                        Taught by : {{t4.first_name}} {{t4.last_name}}
+                        
+                        </li><br>
+                      {% endif %}
+                      {% if s5 !=  'None' %}
+                        <li><strong>{{s5}}</strong><br>
+                        Taught by : {{t5.first_name}} {{t5.last_name}}
+                        
+                        </li><br>
+                      {% endif %}
+                </ol>
+        </p>
+            
+        <a href="/portal/edit_reg_sub/" style = "text-decoration:none;">
+            <div class="btn-primary" style="color:white; max-width:30%; padding:10px 10px; margin:auto">
+                Update Details
+            </div>
+        </a>
+
+    </div>
+
+    {%  block popup %}{% endblock %}
+
+{% endblock %}

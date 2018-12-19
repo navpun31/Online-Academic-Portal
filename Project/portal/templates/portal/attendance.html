@@ -1,0 +1,66 @@
+{% extends 'portal/student_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Attendance</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Attendance</h2>
+        <hr >
+        <br/>
+        <p style = "text-align:left">
+            <style>
+                .attendance{
+                    overflow-x: auto;
+                    overflow-y: auto;
+                    max-height:350px;
+                    color:black;
+                }
+                .date{
+                    text-align:center;
+                }
+
+            </style>
+
+            {% if teacher%}
+            <div class = "attendance" >
+                
+                <table class = "table table-bordered table-striped" style = "background:lightgrey">
+                    
+                        <tr>    
+                            {% for att in attendances %}
+                                <th>{{att.date}}</th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% for att in attendances %}
+                                {% if att.date in dates %}<th style="background:lightgreen; border:3px solid black; text-align:center">P</th>
+                                {% else %}<th style="background:red; color:white; border:3px solid black; text-align:center;">A</th>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    
+                </table>
+                
+            </div>
+
+            <br>
+            <div class="btn-danger btn-lg" style="max-width: 40%; margin: auto; text-decoration:none; border-radius:0px;">
+            Total Classes : {{total}}
+            <br>Present : {{present}}&nbsp;&nbsp;&nbsp;Absent : {{absent}}
+            <br>Percent : {{percent}}%</div><br>
+            {% else %}
+                <span style="color:white;">
+                No Teacher has been alloted.
+                </span>
+            {% endif %}
+        </p>
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

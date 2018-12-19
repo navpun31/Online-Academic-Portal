@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Profile</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <table style="width : 100%">
+		<tr style="vertical-align: top">
+			<td style="width : 25%">
+				<div class ="container containerEdit" style = "text-align:left;">
+					<style>
+						.notifHover{
+						
+							background:#4f0000;
+						}
+						.notifHover:hover{
+							background:black;
+						}
+					</style>
+
+					<a href="/portal/profile" style="text-decoration:none">
+						<div style = "border:1px dashed white; padding:10px; color:white;  margin:auto;" class = "notifHover">
+							<p style = "text-align:center; font-size:25px;">
+								Profile
+							</p>
+						</div>
+					</a>
+					<br>
+
+					<a href="/portal/t_view_personal_details" style="text-decoration:none">
+						<div style = "border:1px dashed white; padding:10px; color:white;  margin:auto;" class = "notifHover">
+							<p style = "text-align:center; font-size:25px;">
+								Personal Details
+							</p>
+						</div>
+					</a>
+					<br>
+
+					<a href="/portal/t_reg_subject" style="text-decoration:none">
+						<div style = "border:1px dashed white; padding:10px; color:white;  margin:auto;" class = "notifHover">
+							<p style = "text-align:center; font-size:25px;">
+								Course Registration
+							</p>
+						</div>
+					</a>
+					<br>
+
+					<a href="/portal/view_t_reg_subject" style="text-decoration:none">
+						<div style = "border:1px dashed white; padding:10px; color:white;  margin:auto;" class = "notifHover">
+							<p style = "text-align:center; font-size:25px;">
+								Courses Details
+							</p>
+						</div>
+					</a>
+					<br>
+
+					<a href="/portal/manageAttendance" style="text-decoration:none">
+						<div style = "border:1px dashed white; padding:10px; color:white;  margin:auto;" class = "notifHover">
+							<p style = "text-align:center; font-size:25px;">
+								Manage Attendance
+							</p>
+						</div>
+					</a>
+					<br>
+		        </div>
+		    </td>
+		    <td style="width : 50%;">
+			    <div class="container containerEdit">
+			    	{% block details%}
+				    	<hr>
+						<h2>Teacher Profile</h2>
+						<hr >
+						{% include 'portal/profile.html' %}
+					{% endblock %}
+			    </div>
+		    </td>
+		    <td style=" width : 25%">
+			    </div>
+		    </td>
+		</tr>
+	</table>
+
+    {%  block popup %}{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Personal Details</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <hr>
+        <h2>Personal Details</h2>
+        <hr >
+        <br>
+        <p class = "formLeftAlign" style="font-size:17px">
+            <table style="margin-left:50px; margin-right:50px; ">
+                <tr style="vertical-align: top">
+                    <td style = "width:30%;">
+                        {% if context.image %}<img src='{{context.image.url}}' class='img-responsive img-circle'/>
+                        {% else %} <img src='/media/default-profile-picture.jpg' class='img-responsive img-circle'/> 
+                        {% endif %}
+                    </td>
+                    <td class = "formLeftAlign" style="max-width:100px; word-wrap: break-word; white-space: normal;">
+			Name : <strong>{{name.first_name}} {{name.last_name}}</strong><br><br>
+                        Designation : <strong>{{context.designation}}</strong><br><br>
+                        Administrative Postion : <strong>{{context.adminPos}}</strong><br><br>
+                        Area(s) of Interest : <strong>{{context.interest}}</strong><br><br>
+                        Contact No : <strong>{{context.Contact}}</strong>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <br>
+        
+    </div>
+
+
+
+{% endblock %}

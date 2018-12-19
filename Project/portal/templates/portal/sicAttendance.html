@@ -1,0 +1,87 @@
+{% extends 'portal/teacher_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Attendance</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Attendance</h2>
+        <hr >
+        <br/>
+	<p class = "" style="text-align:left;">
+            {% if list %}
+
+            <style>
+                .attendance{
+                    overflow-x: auto;
+                    overflow-y: auto;
+                    max-height:350px;
+                    color:black;
+                }
+                .date{
+                    text-align:center;
+                }
+
+            </style>
+            <div class="btn-danger btn-lg" style="max-width: 30%; margin: auto; text-decoration:none; border-radius:0px;">Total Classes : {{total}}</div>
+            <br>
+            <div class = "attendance">
+
+                <table class = "table table-bordered table-striped" style = "background:lightgrey">
+                    <tr>
+                        <th>Roll&nbsp;Number</th>
+                        <th style="text-align:center;"><strong>Percentage</strong></th>
+                        {% for att in attendances %}
+                            <th>{{att.date}}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for student in list %}
+                        <tr>
+                            <th>{{student.user.username}}</th>
+
+                            
+                            {% for key, value in percent.items %} 
+                                {% if key == student.user.username %}
+                                    {% if value < 75 %}
+                                        <th style="text-align:center; width:auto; background:red; color:white; border:3px solid black;"> 
+                                            {{ value }}%
+                                        </th>
+                                    {% elif value <= 80 %}
+                                        <th style="text-align:center; width:auto; background:yellow; border:3px solid black;"> 
+                                            {{ value }}%
+                                        </th>
+                                    {% else %}
+                                        <th style="text-align:center; width:auto; background:lightgreen; border:3px solid black;"> 
+                                            {{ value }}%
+                                        </th>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                            
+
+                            {% for p in presents %}
+                                {% if student.user.username in p %}<th style="background:lightgreen; border:3px solid black; text-align:center">P</th>
+                                {% else %}<th style="background:red; color:white; border:3px solid black; text-align:center;">A</th>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            
+            <br>
+            <a href="/portal/addClass/{{sub.subject}}/{{sub.department}}/{{sub.year}}/{{sub.program}}" class="btn-danger btn-lg" role="button" style="max-width: 30%; margin: auto; text-decoration:none; border-radius:0px;">Add Class</a>
+	    {% else %}
+    		No student is enrolled.
+	    {% endif %}
+        </p>
+
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+<title>Logout</title>
+<link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+{% block body %}
+	<div class="container containerEdit">
+		<hr>
+		<h1>Good Bye!</h1>
+		<hr>
+		<br>
+
+		<p style = "font-size:20px;">
+		    You have successfully logged out!
+		    <a href="/portal/" style="color:lightblue">Click Here</a> to go to Home Page.
+		</p>
+
+	</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Notices</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+		<hr>
+        <h2>Send Notice</h2>
+        <hr/>
+        <form method="post" enctype="multipart/form-data">
+			<style>
+			input[type='file']{
+				color:white;
+			}
+			</style>
+            <div class="formLeftAlign">
+				{% csrf_token %}
+				{{ form.as_p }}
+			</div>
+			<button type="submit" class="btn btn-primary">Send</button><br>          
+        </form>
+		<br>
+		
+		
+		<hr>
+        <h2>Sent Notices</h2>
+        <hr/>
+        <br/>
+		
+        <div style = "text-align:left;">
+			{% for post in context %}
+				<style>
+					.notifHover{
+					
+						background:#4f0000;
+					}
+					.notifHover:hover{
+						background:black;
+					}
+				</style>
+			
+				<div style = "border:1px dashed white; padding:10px; color:white; width:100%; margin:auto;" class = "notifHover">
+					<p style = "text-align:justify; word-break: break-all; ">
+						{{forloop.counter}} : <strong>{{post.title}}</strong>
+						<br><br>
+						{{post.msg}}
+						<br>
+					</p>
+					
+					<div style="width:100%; text-align:right;">
+							<i>
+								({{post.date}})
+							</i>
+					</div>
+				</div>
+				<br>
+			{% endfor %}
+        </div>
+    </div>
+	<br/>
+{% endblock %}

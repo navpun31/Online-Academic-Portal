@@ -1,0 +1,58 @@
+{% extends 'portal/teacher_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Add Class</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Add New Class</h2>
+        <hr >
+        <br/>
+	<p class = "">
+            {% if list %}
+
+            <style>
+                .attendance{
+                    overflow-x: auto;
+                    overflow-y: auto;
+                    max-height:350px;
+                    color:black;
+                }
+                .center{
+                    text-align:center;
+                }
+                th{
+                    width:50%;
+                }
+            </style>
+            <form method="post">
+            {% csrf_token %}
+            <div class = "attendance">
+                <table class = "table table-bordered table-striped" style = "background:lightgrey; width:auto; margin:auto;">
+                    <tr>
+                        <th class="center" style="text-align:center;"><input type="date" name="date" style="width:100%;" ></th>
+                    </tr>
+                    {% for student in list %}
+                        <tr>
+                            <td class="center">{{student.user.username}}<input type="checkbox" name="{{student.user.username}}" checked></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+	    {% else %}
+    		No student is enrolled.
+	    {% endif %}
+        </p>
+
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

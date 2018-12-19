@@ -1,0 +1,11 @@
+
+body {
+    background-image: url("http://www.iitbhu.ac.in/eee/images/stories/rampur%20%20hall.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size:cover;
+    display:block;
+    padding:0px !important;
+    margin:0px;
+}

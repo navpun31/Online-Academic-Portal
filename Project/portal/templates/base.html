@@ -1,0 +1,235 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, inital-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+{% block head %}
+
+<title>Base</title>
+
+{% endblock %}
+
+
+    <style type="text/css">
+        .hover > li > a:hover{
+            background-color:#000000;
+        }
+        .btnHover:hover{
+            background-color:#000000;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid" style = "background: #4f0000; height: 3px;">
+</div>
+
+<div class="container-fluid" style = "background: #ffffff; ">
+    <div class="container">
+        <img src="{% static 'portal/images/header.png' %}" class = "img-responsive" style="max-height: 100px; margin: auto">
+    </div>
+</div>
+
+
+<div class="container-fluid" style="padding: 0px;">
+    <!-- Static navbar -->
+
+    <nav class="navbar navbar-dark" style="background-color: #4f0000; border-radius: 0px; " >
+        <div class="container" style="background: #7f0000">
+            <div class="navbar-header">
+                <button type="button" class="btnHover navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar hover" style="background: white"></span>
+                    <span class="icon-bar hover" style="background: white"></span>
+                    <span class="icon-bar hover" style="background: white"></span>
+                </button>
+
+                <!--a class="navbar-brand" href="/"><img src="http://iit.org/wp-content/uploads/2014/08/IITBHU-Logo.jpg" class = "img-responsive" style="width : 25px;"></a>
+                <a class="navbar-brand" href="/" style="color: #ffffff;"><strong>Indian Institute of Technology (IIT), BHU</strong></a-->
+                <a class="navbar-brand" href="/" style="color: #ffffff;"><strong>IIT (BHU), Varanasi</strong></a>
+            </div>
+
+            <div class="collapse navbar-collapse" id = "mainNavBar">
+            {% if user.is_authenticated and user.has_usable_password %}
+				<style>
+				.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+					background-color: black;
+				}
+				.nav .open>a, .nav .open>a:focus, .nav .open>a:visited {
+					background-color: black;
+				}
+				.nav .open>a, .nav .open>a:focus, .nav .open>a:active {
+					background-color: black;
+				}
+				</style>
+                <ul class="nav navbar-nav navbar-right hover">
+                    <li><a href="/portal"><font color="#ffffff">Home</font></a></li>
+					<li><a href="/portal/notification"><font color="#ffffff">Notifications</font></a></li>
+
+                    {% if user.userprofile.status == 'Student' %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <font color=white>Chats
+                        <span class="caret"></span>
+                        </font>
+
+                        </a>
+                        <ul class="dropdown-menu hover" style = "background:#7f0000;">
+                            <li><a href="/portal/deptChat"><font color="#ffffff">Department Chat</font></a></li>
+                            <li><a href="/portal/classChat"><font color="#ffffff">Class Chat</font></a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                        {% if user.teacherpersonal_set.all.exists and user.teacherpersonal_set.all.0.adminPos != "None" %}
+                        <li><a href="/portal/enter_feed"><font color="#ffffff">Announcements
+                            </font></a></li>
+                        {% endif %}
+                    {% endif %}
+					<li class="dropdown">
+                    
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<font color=white>Profile
+						<span class="caret"></span>
+						</font>
+						</a>
+						<ul class="dropdown-menu hover" style = "background:#7f0000;">
+							<li><a href="/portal/profile"><font color="#ffffff">Profile</font></a></li>
+							<li><a href="/portal/profile/edit/"><font color="#ffffff">Edit Profile</font></a></li>
+							<li><a href="/portal/change-password"><font color="#ffffff">Change Password</font></a></li>
+							<li class="divider"></li>
+							<li><a href="/portal/logout"><font color="#ffffff">Logout</font></a></li>
+						</ul>
+					</li>
+                    
+                </ul>
+            {% elif not user.is_authenticated%}
+            <style>
+				.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+					background-color: black;
+				}
+				.nav .open>a, .nav .open>a:focus, .nav .open>a:visited {
+					background-color: black;
+				}
+				.nav .open>a, .nav .open>a:focus, .nav .open>a:active {
+					background-color: black;
+				}
+				</style>
+                <ul class="nav navbar-nav navbar-right hover">
+	            <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <font color=white>Faculty
+                        <span class="caret"></span>
+                        </font>
+
+                        </a>
+                        <ul class="dropdown-menu hover" style = "background:#7f0000;">
+                            <li><a href="/portal/see_t_list/Ceramic Engineering"><font color="#ffffff">Ceramic Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Computer Science and Engineering"><font color="#ffffff">Computer Science and Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Civil Engineering"><font color="#ffffff">Civil Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Electrical Engineering"><font color="#ffffff">Electrical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Electronics Engineering"><font color="#ffffff">Electronics Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Mechanical Engineering"><font color="#ffffff">Mechanical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Metallurgical Engineering"><font color="#ffffff">Metallurgical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Mining Engineering"><font color="#ffffff">Mining Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Chemical Engineering"><font color="#ffffff">Chemical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Pharmaceutical Engineering"><font color="#ffffff">Pharmaceutical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Material Science and Technology"><font color="#ffffff">Material Science and Technology</font></a></li>
+                            <li><a href="/portal/see_t_list/Biochemical Engineering"><font color="#ffffff">Biochemical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Biomedical Engineering"><font color="#ffffff">Biomedical Engineering</font></a></li>
+                            <li><a href="/portal/see_t_list/Department of Chemistry"><font color="#ffffff">Department of Chemistry</font></a></li>
+                            <li><a href="/portal/see_t_list/Department of Physics"><font color="#ffffff">Department of Physics</font></a></li>
+                            <li><a href="/portal/see_t_list/Department of Mathematical Sciences"><font color="#ffffff">Department of Mathematical Sciences</font></a></li>
+                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <font color=white>Students
+                        <span class="caret"></span>
+                        </font>
+
+                        </a>
+                        <ul class="dropdown-menu hover" style = "background:#7f0000;">
+                            <li><a href="/portal/see_s_list/Ceramic Engineering"><font color="#ffffff">Ceramic Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Computer Science and Engineering"><font color="#ffffff">Computer Science and Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Civil Engineering"><font color="#ffffff">Civil Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Electrical Engineering"><font color="#ffffff">Electrical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Electronics Engineering"><font color="#ffffff">Electronics Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Mechanical Engineering"><font color="#ffffff">Mechanical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Metallurgical Engineering"><font color="#ffffff">Metallurgical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Mining Engineering"><font color="#ffffff">Mining Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Chemical Engineering"><font color="#ffffff">Chemical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Pharmaceutical Engineering"><font color="#ffffff">Pharmaceutical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Material Science and Technology"><font color="#ffffff">Material Science and Technology</font></a></li>
+                            <li><a href="/portal/see_s_list/Biochemical Engineering"><font color="#ffffff">Biochemical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Biomedical Engineering"><font color="#ffffff">Biomedical Engineering</font></a></li>
+                            <li><a href="/portal/see_s_list/Department of Chemistry"><font color="#ffffff">Department of Chemistry</font></a></li>
+                            <li><a href="/portal/see_s_list/Department of Physics"><font color="#ffffff">Department of Physics</font></a></li>
+                            <li><a href="/portal/see_s_list/Department of Mathematical Sciences"><font color="#ffffff">Department of Mathematical Sciences</font></a></li>
+                            
+                        </ul>
+                    </li>
+	            <li><a href="/portal/login"><font color="#ffffff">Login</font></a></li>
+                    <li><a href="/portal/register"><font color="#ffffff">Register</font></a></li>
+                </ul>
+            {% endif %}
+            </div>
+        </div><!--/.container-fluid -->
+    </nav>
+</div>
+
+<link rel="stylesheet" href="{% static 'portal/bg.css' %}" type="text/css" />
+
+
+{% block body %}
+
+{% endblock %}
+
+<style>
+    #google_translate_element {
+      color: transparent;
+    }
+    #google_translate_element a {
+      display: none;
+    }
+    .goog-logo-link {
+       display:none !important;
+    } 
+
+    .goog-te-gadget{
+       color: transparent !important;
+    }
+    #footer {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+    }
+</style>
+    
+<div id="footer">
+    <table style="background:#4f0000; color:white; width:100%;; max-height:10px;">
+        <tr>
+            <td>
+                <div >Response time: {{ response_time.total_seconds }} seconds</div>
+            </td>
+            <td>
+                <div id="google_translate_element" style="display:block; width:50%; float:right; "></div>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage:'en'}, 'google_translate_element');
+    }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>
+</body>
+</html>

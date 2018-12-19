@@ -1,0 +1,26 @@
+
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Programmes</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <hr>
+        <h1>Programmes</h1>
+        <hr >
+        <br/>
+            <li><a href="/portal/s_list/{{dep}}/B.Tech">B.Tech</a></li><br>
+            <li><a href="/portal/s_list/{{dep}}/M.Tech">M.Tech</a></li><br>
+            <li><a href="/portal/s_list/{{dep}}/IDD">IDD</a></li><br>
+            <li><a href="/portal/s_list/{{dep}}/PHD">PHD</a></li><br>
+
+
+	</div>
+
+        
+{% endblock %}

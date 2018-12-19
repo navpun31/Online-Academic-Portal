@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Personal Details</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <hr>
+        <h2>Personal Details</h2>
+        <hr >
+        <br>
+        <p class = "formLeftAlign" style="font-size:17px">
+            
+                    <td class = "formLeftAlign" style=" max-width:100px; word-wrap: break-word; white-space: normal;">
+                        No details found!
+                    </td>
+        </p>
+        <br>
+        
+    </div>
+
+
+
+{% endblock %}

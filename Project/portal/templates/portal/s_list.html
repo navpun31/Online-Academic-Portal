@@ -1,0 +1,34 @@
+
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Students</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+    <div class="container containerEdit">
+        <hr>
+        <h1>Students</h1>
+        <hr >
+        <br/>
+	<p class = "formLeftAlign">
+            {% if students %}
+    	    <ol style="text-align:left; font-size:19px;">
+   	    {% for stud in students %}
+       		 <li><a href="/portal/s/{{stud.user.username}}">{{stud.user.username}}  -  {{ stud.user.first_name }} {{stud.user.last_name}} : {{stud.department}}</a></li>
+		 <br>
+    	    {% endfor %}
+    	    </ol>
+	    {% else %}
+    		No student is available.
+	    {% endif %}
+        </p>
+
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

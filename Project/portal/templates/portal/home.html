@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+
+
+<div class="container containerEdit" style = "max-width:900px;">
+    <hr><h1><strong>Welcome to IIT(BHU) Online Portal<strong></h1><hr>
+    <br>
+    <br>
+
+    <table style="margin-left:50px; margin-right:50px;">
+        <tr style="">
+            <td style = "width:30%; ">
+                <img src="{% static 'portal/images/madan-mohan-malviya.jpg' %}" class='img-responsive' style = "max-width:200px;"/>
+            </td>
+            <td class = "formLeftAlign" style="word-wrap: break-word; white-space: normal; text-align:justify;">
+                <span style = "font-size:18px">
+                " 
+                A teaching university would but half perform its function if it does not seek to develop the heart-power of its scholars with the same solicitude with which it develops their brain-power. Hence it is that the proposed university has placed formation of character in youth as one of its principal objects.
+                "
+                <i>
+                <br><br> - Mahamana Pt. Madan Mohan Malaviya Ji <br> The Founder
+                </i>
+                </span>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <div style = "text-align:left; border:1px solid white; padding:20px;">
+				<style>
+					.notifHover{
+					
+						background:#4f0000;
+					}
+					.notifHover:hover{
+						background:black;
+					}
+				</style>
+			{% for entry in dic %}
+				<div style = "border:1px dashed white; padding:10px; color:white; width:100%; margin:auto;" class = "notifHover">
+					<p style = "text-align:justify; word-break: break-all; ">
+						   <strong>{{entry.title}}</strong>
+						<br><br>
+						{{entry.description}}
+						<br>
+					</p>
+				</div><br>
+                {% endfor %}
+                <div style = " color:white; float:right"><i>
+                <a href="/portal/archiveview/" style="">
+            Click to view more RSS Feeds.<img src="{% static 'portal/images/rss-icon.png' %}" class = "img-responsive" style="max-width: 20px; float:right;">
+            </a>
+            </i>
+            </div>
+            <br>
+    </div>
+    <br>
+    <hr>
+    <table style = "width : 100%;">
+        <style>
+            .foot > td{
+                /*
+                 border-right:1px solid white; 
+                 border-left:1px solid white;
+                 */
+                 padding : 5px;
+            }
+        </style>
+        <tr style = "font-size : 14px;" class="foot">
+            <td>
+                <a href="http://iitbhu.ac.in/#" >
+                Academic Portal
+                </a>
+            </td>
+            <td>
+                <a href="http://www.sntciitbhu.org/">
+                Science And Technology Council
+                </a>
+            </td>
+            <td>
+                <a href="http://iitbhu.ac.in/gymkhana_beta/councils/cultural/index.html">
+                Cultural Council
+                </a>
+            </td>
+            <td>
+                <a href="https://www.facebook.com/Official.IITBHUVaranasi/">
+                Facebook page
+                </a>
+            </td>
+            <td>
+                <a href="http://www.iitbhu.ac.in/admissions/freshers-portal/contacts.html">
+                Freshers' Portal
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+
+    {% block popup %}{% endblock %}
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+{% extends 'portal/teacher_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Subjects</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Subjects</h2>
+        <hr >
+        <br/>
+	<p class = "formLeftAlign" style="">
+            {% if subjects %}
+        	    <ol style = "font-size : 17px; text-align : left">
+           	    {% for sub in subjects %}
+            		 {% if sub.subject != 'None' %}
+                   		 <li><a href="/portal/{{sub.subject}}/{{sub.department}}/{{sub.year}}/{{sub.program}}">{{sub.subject}}<br>({{sub.program}} {{sub.department}} Part {{sub.year}})</a></li>
+                        <br>
+            		 {% endif %}
+        	    {% endfor %}
+        	    </ol>
+    	    {% else %}
+        		No subject is taught by you.
+    	    {% endif %}
+        </p>
+
+	</div>
+
+        {%  block popup %}{% endblock %}
+
+{% endblock %}

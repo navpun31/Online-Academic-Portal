@@ -1,0 +1,42 @@
+{% extends 'portal/student_profile.html' %}
+{% load staticfiles %}
+
+{% block head %}
+    <title>Personal Details</title>
+    <link rel = "stylesheet" type="text/css" href="{% static 'portal/style.css' %}"/>
+{% endblock %}
+
+{% block details %}
+    <div class="">
+        <hr>
+        <h2>Personal Details</h2>
+        <hr >
+        <br>
+        <p class = "formLeftAlign" style="font-size:17px">
+            <table style="margin-left:50px; margin-right:50px;">
+                <tr style="vertical-align: top">
+                    <td style = "width:30%;">
+                        {% if context.image %}<img src='{{context.image.url}}' class='img-responsive img-circle'/>
+                        {% else %} <img src='/media/default-profile-picture.jpg' class='img-responsive img-circle'/> 
+                        {% endif %}
+                    </td>
+                    <td class = "formLeftAlign" style=" max-width:100px; word-wrap: break-word; white-space: normal;">
+                        Contact No : <strong>{{context.Contact}}</strong><br><br>
+                        Permanent Address : <strong>{{context.PermAddress}}</strong><br><br>
+                	    City : <strong>{{context.City}}</strong><br><br>
+                	    State : <strong>{{context.State}}</strong>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <br>
+        <a href="/portal/edit_personal_details/" style = "text-decoration:none;">
+            <div class="btn-primary" style="color:white; max-width:30%; padding:10px 10px; margin:auto">
+                Update Details
+            </div>
+        </a>
+    </div>
+
+    {%  block popup %}{% endblock %}
+
+{% endblock %}
