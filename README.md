@@ -2,15 +2,18 @@
 
 The aim of the web application is to incorporate the various features that enables easy
 communication and interaction among the students and the teachers.
+
 The online portal includes:
 1. Students’ Portal
 2. Teachers’ Portal
+
 Thus, the privileges of the students and the teachers are bifurcated accordingly in an efficient
 manner. It helps the students to keep track of their records and manage them efficiently, including
 tracking attendance, manage assignments, manage bank details for refunds, and many other stuff.
 It also helps the professors to easily keep track of their class records, and gives them an easy way to
 make announcements or send assignments or manage the attendance of the various batches
 associated with them.
+
 It comprises of RSS Feeds and has various features including Internationalization & Localization
 (Multi-lingual), Social Media Integration and a custom middleware.
 
