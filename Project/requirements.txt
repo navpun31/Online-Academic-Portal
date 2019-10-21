@@ -5,7 +5,7 @@ colorama==0.3.9
 cycler==0.10.0
 decorator==4.1.2
 defusedxml==0.5.0
-Django==1.11.3
+Django==1.11.23
 django-feedparser==0.2.1
 django-rss-xml-parser==0.4
 django-widget-tweaks==1.4.1
